@@ -1,17 +1,19 @@
 import styles from "./banner.module.css"
 
-const colors = ["lightcoral", "lightskyblue", "lightgreen"];
+type Props = {
+	stripeColors: Array<string>;
+}
 
-export default function Banner() {
+export default function Banner({ stripeColors }: Props) {
 	return (
 		<section className={styles.banner}>
 			{
-				colors.map((_, i) => {
+				stripeColors.map((_, i) => {
 					return (
 						<div 
 							key={i}
 							className={styles.stripe}
-							style={{backgroundColor: `${colors[i]}`}}
+							style={{backgroundColor: `${stripeColors[i]}`}}
 						>
 						</div>
 					)}

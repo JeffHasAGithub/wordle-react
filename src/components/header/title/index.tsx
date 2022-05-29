@@ -4,10 +4,10 @@ import styles from "./title.module.css"
 type Props = {
 	text: string;
 	textColor: string;
-	shadowColors: Array<string>
+	accentColors: Array<string>
 }
 
-export default function Header({ text, shadowColors, textColor }: Props) {
+export default function Header({ text, accentColors, textColor }: Props) {
 	const [color, setColor] = React.useState(0);
 	const [position, setPosition] = React.useState(0);
 	
@@ -15,12 +15,12 @@ export default function Header({ text, shadowColors, textColor }: Props) {
 	const shadows = React.useMemo(() => word.map((_) => "darkgray"), [textColor]);
 	
 	React.useEffect(() => {
-			shadows[position] = shadowColors[color];
+			shadows[position] = accentColors[color];
 			const timerId = setTimeout(() => {
 				if (position === word.length)
 					return;
 
-				if (color === shadowColors.length - 1)
+				if (color === accentColors.length - 1)
 					setColor(0);
 				else
 					setColor(color + 1);

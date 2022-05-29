@@ -1,15 +1,17 @@
-import './App.css'
+import "./App.css"
 
 import Header from "./components/header"
 import Game from "./components/game"
 import Footer from "./components/footer"
+import { ThemeCtx, themeColors } from "./components/theme"
 
-function App() {
+export default function App() {
 	return <>
-		<Header />
-		<Game />
-		<Footer />
+		<ThemeCtx.Provider value={themeColors}>
+			<Header />
+			<Game />
+			<Footer />
+		</ThemeCtx.Provider>
 	</>
 }
 
-export default App;

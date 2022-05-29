@@ -1,4 +1,5 @@
 import styles from "./board.module.css"
+
 import Row from "./row"
 
 export default function Board() {
