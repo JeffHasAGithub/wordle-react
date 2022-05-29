@@ -4,10 +4,14 @@ const colors = ["lightcoral", "lightskyblue", "lightgreen"];
 
 export default function Divider() {
 	return (
-		<section className={styles.container}>
-			{
-				colors.map((_,i) => <div className={styles.bar} style={{backgroundColor: `${colors[i]}`}}></div>)
-			}
-		</section>
+		<>
+			<div className={styles.divider}>
+				{
+					colors.map((_, i) => {
+						return <div className={styles.stripe} style={{backgroundColor: `${colors[i]}`}}></div>
+					})
+				}
+			</div>
+		</>
 	)
 }

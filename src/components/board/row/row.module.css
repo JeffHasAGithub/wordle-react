@@ -1,0 +1,6 @@
+.row {
+	display: flex;
+	justify-content: center;
+
+	gap: max(1em, 1vw);
+}

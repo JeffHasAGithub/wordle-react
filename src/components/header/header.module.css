@@ -1,5 +1,11 @@
+.container {
+	display: flex;
+	justify-content: center;
+}
+
 .text {
 	padding: 2px;
+
 	font-size: 4em;
 	font-style: oblique;
 }
