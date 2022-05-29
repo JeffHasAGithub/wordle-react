@@ -8,7 +8,14 @@ export default function Divider() {
 			<div className={styles.divider}>
 				{
 					colors.map((_, i) => {
-						return <div className={styles.stripe} style={{backgroundColor: `${colors[i]}`}}></div>
+						return (
+							<div 
+								key={i}
+								className={styles.stripe}
+								style={{backgroundColor: `${colors[i]}`}}
+							>
+							</div>
+						)
 					})
 				}
 			</div>

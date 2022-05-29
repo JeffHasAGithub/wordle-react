@@ -1,22 +1,14 @@
 import './App.css'
 
 import Header from "./components/header"
-import Banner from "./components/banner"
-import Board from "./components/board"
-import Keyboard from "./components/keyboard"
-import Divider from "./components/divider"
+import Game from "./components/game"
+import Footer from "./components/footer"
 
 function App() {
 	return <>
-		<Header
-			text="Wordle"
-			textColor="lemonchiffon"
-			shadowColors={["lightcoral", "lightskyblue", "lightgreen"]}
-		/>
-		<Banner />
-		<Board />
-		<Keyboard />
-		<Divider />
+		<Header />
+		<Game />
+		<Footer />
 	</>
 }
 

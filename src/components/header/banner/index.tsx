@@ -6,7 +6,16 @@ export default function Banner() {
 	return (
 		<section className={styles.banner}>
 			{
-				colors.map((_,i) => <div className={styles.stripe} style={{backgroundColor: `${colors[i]}`}}></div>)
+				colors.map((_, i) => {
+					return (
+						<div 
+							key={i}
+							className={styles.stripe}
+							style={{backgroundColor: `${colors[i]}`}}
+						>
+						</div>
+					)}
+				)	
 			}
 		</section>
 	)

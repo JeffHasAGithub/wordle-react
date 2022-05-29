@@ -13,12 +13,12 @@ export default function Keyboard() {
 		<>
 			<section className={styles.keyboard}>
 				{
-					keys.map((row) => {
+					keys.map((row, i) => {
 						return (
-							<div>
+							<div key={i}>
 								{
-									row.map((key) => {
-										return <button className={styles.key}>{key}</button>
+									row.map((key, j) => {
+										return <button key={j} className={styles.key}>{key}</button>
 									})
 								}
 							</div>
@@ -27,7 +27,7 @@ export default function Keyboard() {
 				}
 				<div className={styles.cmds}>
 					{
-						cmds.map((cmd) => <button className={styles.cmd}>{cmd}</button>)
+						cmds.map((cmd, i) => <button key={i} className={styles.cmd}>{cmd}</button>)
 					}
 				</div>
 			</section>

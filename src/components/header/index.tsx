@@ -1,45 +1,19 @@
-import React from "react"
 import styles from "./header.module.css"
 
-type Props = {
-	text: string;
-	textColor: string;
-	shadowColors: Array<string>
-}
+import Title from "./title"
+import Banner from "./banner"
 
-export default function Header({ text, shadowColors, textColor }: Props) {
-	const [color, setColor] = React.useState(0);
-	const [position, setPosition] = React.useState(0);
-	
-	const word = React.useMemo(() => text.split(""), [text]);
-	const shadows = React.useMemo(() => word.map((_) => "darkgray"), [textColor]);
-	
-	React.useEffect(() => {
-			shadows[position] = shadowColors[color];
-			const timerId = setTimeout(() => {
-				if (position === word.length)
-					return;
-
-				if (color === shadowColors.length - 1)
-					setColor(0);
-				else
-					setColor(color + 1);
-				
-				setPosition(position + 1);
-			}, 200);
-
-			return () => clearTimeout(timerId);
-	}, [position])
-
+export default function Header() {
 	return (
 		<>
-			<h1 className={styles.container}>
-			{
-				word.map((letter, i) => {
-					return <span key={i} className={styles.text} style={{color: `${textColor}`, textShadow: `5px 5px ${shadows[i]}`}}>{letter}</span>
-				})
-			}
-			</h1>
+			<header>
+				<Title 
+					text="Wordle"
+					textColor="lemonchiffon"
+					shadowColors={["lightcoral", "lightskyblue", "lightgreen"]}
+				/>
+				<Banner />
+			</header>
 		</>
 	)
 }
