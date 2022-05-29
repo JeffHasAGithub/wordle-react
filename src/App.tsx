@@ -1,7 +1,7 @@
 import './App.css'
 
 import Header from "./components/header"
-
+import Divider from "./components/divider"
 
 function App() {
 	return <>
@@ -10,6 +10,7 @@ function App() {
 			textColor="lemonchiffon"
 			shadowColors={["lightcoral", "lightskyblue", "lightgreen"]}
 		/>
+		<Divider />
 	</>
 }
 
