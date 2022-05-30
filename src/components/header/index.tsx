@@ -13,9 +13,10 @@ export default function Header() {
 				<Title 
 					text="Wordle"
 					textColor={theme.primary}
-					accentColors={theme.accents}
+					shadowColor={theme.shadow}
+					accentColors={[theme.accents.red, theme.accents.blue, theme.accents.green]}
 				/>
-				<Banner stripeColors={theme.accents} />
+				<Banner stripeColors={[theme.accents.red, theme.accents.blue, theme.accents.green]} />
 			</header>
 		</>
 	)

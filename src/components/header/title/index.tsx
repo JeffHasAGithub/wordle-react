@@ -4,15 +4,16 @@ import styles from "./title.module.css"
 type Props = {
 	text: string;
 	textColor: string;
-	accentColors: Array<string>
+	shadowColor: string;
+	accentColors: string[];
 }
 
-export default function Header({ text, accentColors, textColor }: Props) {
+export default function Header({ text, textColor, shadowColor, accentColors }: Props) {
 	const [color, setColor] = React.useState(0);
 	const [position, setPosition] = React.useState(0);
 	
 	const word = React.useMemo(() => text.split(""), [text]);
-	const shadows = React.useMemo(() => word.map((_) => "darkgray"), [textColor]);
+	const shadows = React.useMemo(() => word.map((_) => shadowColor), [textColor]);
 	
 	React.useEffect(() => {
 			shadows[position] = accentColors[color];

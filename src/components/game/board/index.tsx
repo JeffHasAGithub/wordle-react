@@ -1,9 +1,9 @@
 import styles from "./board.module.css"
+import * as Utils from "../utils"
 import Row from "./row"
-import { Token } from "../"
 
 type Props = {
-	guesses: Array<Array<Token>>;
+	guesses: Array<Array<Utils.Token>>;
 }
 
 export default function Board({ guesses }: Props) {

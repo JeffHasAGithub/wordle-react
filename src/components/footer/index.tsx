@@ -10,7 +10,7 @@ export default function Footer() {
 	return (
 		<>
 			<footer>
-				<Divider stripeColors={theme.accents} />
+				<Divider stripeColors={[theme.accents.red, theme.accents.blue, theme.accents.green]} />
 			</footer>
 		</>
 	)

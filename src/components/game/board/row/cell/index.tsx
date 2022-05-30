@@ -1,7 +1,7 @@
 import styles from "./cell.module.css"
-import { Token } from "../../../"
+import * as Utils from "../../../utils"
 
-export default function Cell({ letter, color }: Token) {
+export default function Cell({ letter, color }: Utils.Token) {
 	return (
 		<>
 			<div

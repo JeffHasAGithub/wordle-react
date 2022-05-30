@@ -1,67 +1,63 @@
 import styles from "./game.module.css"
+import * as Utils from "./utils"
 
 import React from "react"
 import Board from "./board"
 import Keyboard from "./keyboard"
+import { ThemeCtx } from "../theme"
 
 const MATTEMPTS = 5;
 const MLENGTH = 5;
 
-export type Token = {
-	letter: string,
-	color: string,
-}
-
 export default function Game() {
-	const [word, setWord] = React.useState("Hello");
-	const [guess, setGuess] = React.useState<Array<Token>>([
-		{ letter: "", color: "darkgrey"},
-		{ letter: "", color: "darkgrey"},
-		{ letter: "", color: "darkgrey"},
-		{ letter: "", color: "darkgrey"},
-		{ letter: "", color: "darkgrey"},
-	]);
-	const [guesses, setGuesses] = React.useState<Array<typeof guess>>([
+	const theme = React.useContext(ThemeCtx);
+
+	const [isPlaying, setPlaying] = React.useState(true);
+	const [word, setWord] = React.useState("Hello".toUpperCase());
+	const [guess, setGuess] = React.useState<Utils.Token[]>(Utils.newGuess(MLENGTH, "", theme.shadow));
+	const [guesses, setGuesses] = React.useState<typeof guess[]>([
 		[...guess],
 		[...guess],
 		[...guess],
 		[...guess],
 		[...guess],
 	]);
+
 
 	const cell = React.useRef(0);
 	const row = React.useRef(0);
 
 	React.useEffect(() => {
-		const cpGuesses = [...guesses];
-		cpGuesses[row.current] = [...guess];
-		setGuesses(cpGuesses);
-
 		if (row.current === MATTEMPTS)
-			console.log("done");
-	}, [guess])
+			set
 
-	const keyHandler = (l: string) => {
-		const newGuess = [...guess];
-		newGuess[cell.current] = {
-			letter: l,
-			color: "lightskyblue",
+	}, [guesses])
+
+	const keyHandler = (key: string) => {
+		if (cell.current === MLENGTH)
+			return;
+
+		const cpGuess = [...guesses[row.current]];
+		cpGuess[cell.current++] = {
+			letter: key,
+			color: theme.accents.blue,
 		};
 
-		if (++cell.current === MLENGTH)
-			cell.current--;
-
-		setGuess(newGuess);
+		const cpGuesses = [...guesses];
+		cpGuesses[row.current] = cpGuess;
+		setGuesses(cpGuesses);
 	}
 
 	const enterHandler = () => {
-		setGuess([
-			{ letter: "", color: "darkgrey"},
-			{ letter: "", color: "darkgrey"},
-			{ letter: "", color: "darkgrey"},
-			{ letter: "", color: "darkgrey"},
-			{ letter: "", color: "darkgrey"},
-		]);
+		if (cell.current !== MLENGTH)
+			return;
+
+		const [nmatched, colors] = Utils.checkGuess(word, guesses[row.current]);
+		const cpGuess = colors.map((color, i) => { return { letter: guesses[row.current][i].letter, color } });
+
+		const cpGuesses = [...guesses];
+		cpGuesses[row.current] = cpGuess;
+		setGuesses(cpGuesses);
 
 		cell.current = 0;
 		row.current++;

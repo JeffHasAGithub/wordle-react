@@ -1,9 +1,10 @@
 import styles from "./row.module.css"
+import * as Utils from "../../utils"
+
 import Cell from "./cell"
-import { Token } from "../../"
 
 type Props = {
-	guess: Array<Token>;
+	guess: Array<Utils.Token>;
 }
 
 export default function Row({ guess }: Props) {
