@@ -5,7 +5,7 @@ export interface Token {
 
 export function newToken(letter?: string, color?: string): Token {
 	return {
-		letter: (letter) ? letter : "",
+		letter: (letter) ? letter[0].toUpperCase() : "",
 		color: (color) ? color : "",
 	}
 }

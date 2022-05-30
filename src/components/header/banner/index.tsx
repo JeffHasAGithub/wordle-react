@@ -6,7 +6,7 @@ type Props = {
 
 export default function Banner({ stripeColors }: Props) {
 	return (
-		<section className={styles.banner}>
+		<section className={styles.banner} role="separator">
 			{
 				stripeColors.map((_, i) => {
 					return (
