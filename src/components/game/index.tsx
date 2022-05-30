@@ -27,12 +27,6 @@ export default function Game() {
 	const cell = React.useRef(0);
 	const row = React.useRef(0);
 
-	React.useEffect(() => {
-		if (row.current === MATTEMPTS)
-			set
-
-	}, [guesses])
-
 	const keyHandler = (key: string) => {
 		if (cell.current === MLENGTH)
 			return;
