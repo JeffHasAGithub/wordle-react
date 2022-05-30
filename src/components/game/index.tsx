@@ -14,15 +14,13 @@ export default function Game() {
 
 	const [isPlaying, setPlaying] = React.useState(true);
 	const [word, setWord] = React.useState("Hello".toUpperCase());
-	const [guess, setGuess] = React.useState<Utils.Token[]>(Utils.newGuess(MLENGTH, "", theme.shadow));
-	const [guesses, setGuesses] = React.useState<typeof guess[]>([
-		[...guess],
-		[...guess],
-		[...guess],
-		[...guess],
-		[...guess],
+	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
+		Utils.newGuess(MLENGTH, "", theme.shadow),
+		Utils.newGuess(MLENGTH, "", theme.shadow),
+		Utils.newGuess(MLENGTH, "", theme.shadow),
+		Utils.newGuess(MLENGTH, "", theme.shadow),
+		Utils.newGuess(MLENGTH, "", theme.shadow),
 	]);
-
 
 	const cell = React.useRef(0);
 	const row = React.useRef(0);
