@@ -2,8 +2,16 @@
 	width: 60px;
 	height: 60px;
 
+	font-size: 4em;
+
 	border-radius: 5px;
+
+	color: #191923;
 	background-color: lemonchiffon;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .cell-up {

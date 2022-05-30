@@ -1,14 +1,20 @@
 import styles from "./keyboard.module.css"
 
-const cmds = ["Enter", "Clear"];
+import React from "react"
 
+const cmds = ["Enter", "Clear"];
 const keys = [
 	["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
 	["A", "S", "D", "F", "G", "H", "J", "K", "L"],
 	["Z", "X", "C", "V", "B", "N", "M"]
 ]
 
-export default function Keyboard() {
+type Props = {
+	keyHandler: (l: string) => void;
+	enterHandler: () => void;
+}
+
+export default function Keyboard({ keyHandler, enterHandler }: Props) {
 	return (
 		<>
 			<section className={styles.keyboard}>
@@ -18,7 +24,17 @@ export default function Keyboard() {
 							<div key={i}>
 								{
 									row.map((key, j) => {
-										return <button key={j} className={styles.key}>{key}</button>
+										return (
+											<button
+												key={j}
+												className={styles.key}
+												onClick={() => {
+													keyHandler(row[j])
+												}}
+											>
+												{key}
+											</button>
+										)
 									})
 								}
 							</div>
@@ -26,9 +42,19 @@ export default function Keyboard() {
 					})
 				}
 				<div className={styles.cmds}>
-					{
-						cmds.map((cmd, i) => <button key={i} className={styles.cmd}>{cmd}</button>)
-					}
+					<button
+						className={styles.cmd}
+						onClick={() => {
+							enterHandler();
+						}}
+					>
+						{cmds[0]}
+					</button>
+					<button
+						className={styles.cmd}
+					>
+						{cmds[1]}
+					</button>
 				</div>
 			</section>
 		</>
