@@ -3,6 +3,12 @@ export interface Token {
 	color: string;	
 }
 
+export enum GameState {
+	PLAYING,
+	WON,
+	LOST
+}
+
 export function newToken(letter?: string, color?: string): Token {
 	return {
 		letter: (letter) ? letter[0].toUpperCase() : "",

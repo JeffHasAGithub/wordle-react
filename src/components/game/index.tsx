@@ -4,6 +4,7 @@ import * as Utils from "./utils"
 import React from "react"
 import Board from "./board"
 import Keyboard from "./keyboard"
+import Status from "./status"
 import { ThemeCtx } from "../theme"
 
 const MATTEMPTS = 5;
@@ -12,7 +13,7 @@ const MLENGTH = 5;
 export default function Game() {
 	const theme = React.useContext(ThemeCtx);
 
-	const [isPlaying, setPlaying] = React.useState(true);
+	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.WON);
 	const [word, setWord] = React.useState("Hello".toUpperCase());
 	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
 		Utils.newGuess(MLENGTH, "", theme.shadow),
@@ -58,11 +59,27 @@ export default function Game() {
 	return (
 		<>
 			<main>
-				<Board guesses={guesses} />
-				<Keyboard
-					keyHandler={keyHandler}
-					enterHandler={enterHandler}
-				/>
+				{ gameState === Utils.GameState.PLAYING
+					? <>
+							<Board guesses={guesses} />
+							<Keyboard
+								keyHandler={keyHandler}
+								enterHandler={enterHandler}
+							/>
+						</>
+					: <>
+							<Status
+								state={gameState}
+								word={word}
+								textColor={theme.primary}
+								shadowColors={{
+									red: theme.accents.red,
+									blue: theme.accents.blue,
+									green: theme.accents.green
+								}}
+							/> 
+						</>
+				}
 			</main>
 		</>
 	)

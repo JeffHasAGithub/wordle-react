@@ -1,6 +1,7 @@
 .divider {
 	width: 100vw;
 	display: flex;
+	gap: 2px;
 }
 
 .stripe {

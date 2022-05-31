@@ -1,0 +1,18 @@
+.status {
+	width: 100vw;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.msg {
+	font-size: 5em;
+	font-style: oblique;
+}
+
+.word {
+	font-size: 3em;
+	font-style: oblique;
+}
