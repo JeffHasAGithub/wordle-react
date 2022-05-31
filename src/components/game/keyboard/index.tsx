@@ -10,9 +10,10 @@ const keys = [
 type Props = {
 	keyHandler: (l: string) => void;
 	enterHandler: () => void;
+	clearHandler: () => void;
 }
 
-export default function Keyboard({ keyHandler, enterHandler }: Props) {
+export default function Keyboard({ keyHandler, enterHandler, clearHandler }: Props) {
 	return (
 		<>
 			<section className={styles.keyboard}>
@@ -48,6 +49,7 @@ export default function Keyboard({ keyHandler, enterHandler }: Props) {
 					</button>
 					<button
 						className={styles.cmd}
+						onClick={clearHandler}
 					>
 						{cmds[1]}
 					</button>

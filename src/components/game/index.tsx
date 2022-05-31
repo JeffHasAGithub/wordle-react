@@ -12,7 +12,7 @@ const MLENGTH = 5;
 export default function Game() {
 	const theme = React.useContext(ThemeCtx);
 
-	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.LOST);
+	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.PLAYING);
 	const [word, setWord] = React.useState("Hello".toUpperCase());
 	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
 		Utils.newGuess(MLENGTH, "", theme.shadow),
@@ -65,6 +65,14 @@ export default function Game() {
 		}
 	}
 
+	const clearHandler = () => {
+		const cpGuesses = [...guesses];
+		cpGuesses[row.current] = Utils.newGuess(MLENGTH, "", theme.shadow);
+		setGuesses(cpGuesses);
+
+		cell.current = 0;
+	}
+
 	const resetHandler = () => {
 		setGuesses([
 			Utils.newGuess(MLENGTH, "", theme.shadow),
@@ -89,6 +97,7 @@ export default function Game() {
 							<Keyboard
 								keyHandler={keyHandler}
 								enterHandler={enterHandler}
+								clearHandler={clearHandler}
 							/>
 						</>
 					: <>
