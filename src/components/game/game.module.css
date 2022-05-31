@@ -1,0 +1,9 @@
+.game {
+	padding-block: 3em;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5em;
+}

@@ -16,3 +16,33 @@
 	font-size: 3em;
 	font-style: oblique;
 }
+
+.reset {
+	margin: .5em;
+	padding: 1em;
+
+	height: 60px;	
+
+	font-size: 4em;
+	font-family: "Fredoka One";
+
+	border-radius: 5px;
+	border-style: none;
+
+	color: #191923;
+	background-color: lemonchiffon;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.reset:active {
+	box-shadow: none;
+	transform: translateY(6px);
+}
+
+.reset-up {
+	box-shadow: 0 6px 0 #818181;
+}
+

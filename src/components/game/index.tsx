@@ -6,14 +6,13 @@ import Board from "./board"
 import Keyboard from "./keyboard"
 import Status from "./status"
 import { ThemeCtx } from "../theme"
-
 const MATTEMPTS = 5;
 const MLENGTH = 5;
 
 export default function Game() {
 	const theme = React.useContext(ThemeCtx);
 
-	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.WON);
+	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.LOST);
 	const [word, setWord] = React.useState("Hello".toUpperCase());
 	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
 		Utils.newGuess(MLENGTH, "", theme.shadow),
@@ -54,14 +53,39 @@ export default function Game() {
 
 		cell.current = 0;
 		row.current++;
+		
+		if (nmatched === word.length) {
+			setGameState(Utils.GameState.WON)
+			return;
+		}
+
+		if (row.current === MATTEMPTS) {
+			setGameState(Utils.GameState.LOST);
+			return;
+		}
+	}
+
+	const resetHandler = () => {
+		setGuesses([
+			Utils.newGuess(MLENGTH, "", theme.shadow),
+			Utils.newGuess(MLENGTH, "", theme.shadow),
+			Utils.newGuess(MLENGTH, "", theme.shadow),
+			Utils.newGuess(MLENGTH, "", theme.shadow),
+			Utils.newGuess(MLENGTH, "", theme.shadow),
+		]);
+
+		cell.current = 0;
+		row.current = 0;
+
+		setGameState(Utils.GameState.PLAYING);
 	}
 
 	return (
 		<>
-			<main>
+			<main className={styles.game}>
+				<Board guesses={guesses} />
 				{ gameState === Utils.GameState.PLAYING
 					? <>
-							<Board guesses={guesses} />
 							<Keyboard
 								keyHandler={keyHandler}
 								enterHandler={enterHandler}
@@ -77,6 +101,7 @@ export default function Game() {
 									blue: theme.accents.blue,
 									green: theme.accents.green
 								}}
+								resetHandler={resetHandler}
 							/> 
 						</>
 				}

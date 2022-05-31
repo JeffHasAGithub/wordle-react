@@ -1,6 +1,4 @@
 .keyboard {
-	padding-bottom: 2em; 
-
 	width: 100vw;
 
 	display: flex;
@@ -21,7 +19,7 @@
 
 	font-family: "Fredoka One";
 	font-style: oblique;
-	font-size: max(4em, 2vw);
+	font-size: max(4em, 1.5vw);
 
 	text-shadow: 3px 3px 0 darkgray;
 
@@ -45,7 +43,7 @@
 
 	font-family: "Fredoka One";
 	font-style: oblique;
-	font-size: max(3em, 2vw);
+	font-size: max(3em, 1.5vw);
 
 	text-shadow: 3px 3px 0 darkgray;
 

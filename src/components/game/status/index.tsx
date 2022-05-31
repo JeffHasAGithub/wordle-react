@@ -6,9 +6,10 @@ type Props = {
 	state: GameState;
 	textColor: string;
 	shadowColors: { red: string, blue: string, green: string };
+	resetHandler: () => void;
 }
 
-export default function Status({ word, state, textColor, shadowColors }: Props) {
+export default function Status({ word, state, textColor, shadowColors, resetHandler }: Props) {
 	return (
 		<div className={styles.status}>
 			{
@@ -30,7 +31,7 @@ export default function Status({ word, state, textColor, shadowColors }: Props) 
 									textShadow: `2px 2px ${shadowColors.green}`
 								}}
 							>
-								{`The word was ${word}`}
+								{`The word was ${word}!`}
 							</h3>
 						</>
 					: <>
@@ -50,10 +51,16 @@ export default function Status({ word, state, textColor, shadowColors }: Props) 
 									textShadow: `2px 2px ${shadowColors.red}`
 								}}
 							>
-								{`The word was ${word}`}
+								{`The word was ${word}!`}
 							</h3>
 						</>
 			}
+			<button
+				className={`${styles.reset} ${styles["reset-up"]}`}
+				onClick={resetHandler}
+			>
+				Play again
+			</button>
 		</div>
 	);
 }
