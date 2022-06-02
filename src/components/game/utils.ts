@@ -50,3 +50,7 @@ export function checkGuess(word: string, guess: Token[]): [number, string[]] {
 
 	return [nmatched, colors];
 }
+
+export function getRandWord(words: string[]) {
+	return words[Math.floor(Math.random() * words.length)];
+}

@@ -12,7 +12,7 @@ const MLENGTH = 5;
 
 export default function Game() {
 	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.PLAYING);
-	const [word, setWord] = React.useState("Hello".toUpperCase());
+	const [word, getWord] = useFetch("words.txt");
 	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
 		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
 		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
@@ -23,6 +23,10 @@ export default function Game() {
 
 	const cell = React.useRef(0);
 	const row = React.useRef(0);
+
+	React.useEffect(() => {
+		getWord();
+	}, [])
 
 	const keyHandler = (key: string) => {
 		if (cell.current === MLENGTH)
@@ -84,6 +88,7 @@ export default function Game() {
 		cell.current = 0;
 		row.current = 0;
 
+		getWord();
 		setGameState(Utils.GameState.PLAYING);
 	}
 
@@ -116,4 +121,21 @@ export default function Game() {
 			</main>
 		</>
 	)
+}
+
+function useFetch(path: string): [string, () => void] {
+	const [data, setData] = React.useState("");
+	return [data, () => {
+		fetch(path)
+			.then(resp => resp.text())
+			.then(text=> {
+				const newWord = Utils.getRandWord(text.split("\n"));
+				console.log(newWord);
+				setData(newWord);
+			})
+			.catch(err => {
+				console.log(err);
+				setData("ERROR")
+			});
+	}];
 }
