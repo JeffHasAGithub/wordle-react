@@ -24,13 +24,13 @@
 	height: 60px;	
 
 	font-size: 4em;
-	font-family: "Fredoka One";
+	font-family: var(--primary-font);
 
 	border-radius: 5px;
 	border-style: none;
 
-	color: #191923;
-	background-color: lemonchiffon;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
 
 	display: flex;
 	justify-content: center;
@@ -43,6 +43,6 @@
 }
 
 .reset-up {
-	box-shadow: 0 6px 0 #818181;
+	box-shadow: 0 6px 0 var(--shadow-color);
 }
 

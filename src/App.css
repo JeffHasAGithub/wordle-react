@@ -8,8 +8,17 @@
 }
 
 html {
-	font-size: 8px;
-	font-family: "Fredoka One", Verdana, Geneva, Tahoma, sans-serif;
+	--primary-color: #FFFACD;
+	--secondary-color: #191923;
+	--shadow-color: #A9A9A9;
+	--accent-color-red: #F08080;
+	--accent-color-blue: #87CEFA;
+	--accent-color-green: #90EE90;
 
-	background-color: #191923;
+	--primary-font: "Fredoka One";
+
+	font-size: 8px;
+	font-family: var(--primary-font), Verdana, Geneva, Tahoma, sans-serif;
+
+	background-color: var(--secondary-color);
 }

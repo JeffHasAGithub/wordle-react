@@ -3,20 +3,28 @@ import styles from "./header.module.css"
 import React from "react"
 import Title from "./title"
 import Banner from "./banner"
-import { ThemeCtx } from "../theme"
+import * as Theme from "../theme"
 
 export default function Header() {
-	const theme = React.useContext(ThemeCtx);
 	return (
 		<>
 			<header>
 				<Title 
 					text="Wordle"
-					textColor={theme.primary}
-					shadowColor={theme.shadow}
-					accentColors={[theme.accents.red, theme.accents.blue, theme.accents.green]}
+					textColor={Theme.PRIMARY_COLOR}
+					shadowColor={Theme.SHADOW_COLOR}
+					accentColors={[
+						Theme.ACCENT_COLORS.RED,
+						Theme.ACCENT_COLORS.BLUE,
+						Theme.ACCENT_COLORS.GREEN]}
 				/>
-				<Banner stripeColors={[theme.accents.red, theme.accents.blue, theme.accents.green]} />
+				<Banner
+					stripeColors={[
+						Theme.ACCENT_COLORS.RED,
+						Theme.ACCENT_COLORS.BLUE,
+						Theme.ACCENT_COLORS.GREEN,
+					]}
+				/>
 			</header>
 		</>
 	)

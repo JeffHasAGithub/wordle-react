@@ -6,8 +6,8 @@
 
 	border-radius: 5px;
 
-	color: #191923;
-	background-color: lemonchiffon;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
 
 	display: flex;
 	justify-content: center;
@@ -15,7 +15,7 @@
 }
 
 .cell-up {
-	box-shadow: 0 6px 0 #818181;
+	box-shadow: 0 6px 0 var(--shadow-color);
 }
 
 .cell-down {

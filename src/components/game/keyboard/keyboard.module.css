@@ -17,19 +17,19 @@
 .cmd {
 	width: min-content;
 
-	font-family: "Fredoka One";
+	font-family: var(--primary-font);
 	font-style: oblique;
 	font-size: max(4em, 1.5vw);
 
-	text-shadow: 3px 3px 0 darkgray;
+	text-shadow: 3px 3px 0 var(--shadow-color);
 
-	color: lemonchiffon;
+	color: var(--primary-color);
 	border: none;
 	background: none;
 }
 
 .cmd:hover {
-	text-shadow: 3px 3px 0 lightskyblue;
+	text-shadow: 3px 3px 0 var(--accent-color-blue);
 }
 
 .cmd:active {
@@ -41,19 +41,19 @@
 	width: 1.5em;
 	height: 1.5em;
 
-	font-family: "Fredoka One";
+	font-family: var(--primary-font);
 	font-style: oblique;
 	font-size: max(3em, 1.5vw);
 
-	text-shadow: 3px 3px 0 darkgray;
+	text-shadow: 3px 3px 0 var(--shadow-color);
 
-	color: lemonchiffon;
+	color: var(--primary-color);
 	border: none;
 	background: none;
 }
 
 .key:hover {
-	text-shadow: 3px 3px 0 lightskyblue;
+	text-shadow: 3px 3px 0 var(--accent-color-blue);
 }
 
 .key:active {

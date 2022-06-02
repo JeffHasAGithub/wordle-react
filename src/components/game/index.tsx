@@ -5,21 +5,20 @@ import React from "react"
 import Board from "./board"
 import Keyboard from "./keyboard"
 import Status from "./status"
-import { ThemeCtx } from "../theme"
+import * as Theme from "../theme"
+
 const MATTEMPTS = 5;
 const MLENGTH = 5;
 
 export default function Game() {
-	const theme = React.useContext(ThemeCtx);
-
 	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.PLAYING);
 	const [word, setWord] = React.useState("Hello".toUpperCase());
 	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
-		Utils.newGuess(MLENGTH, "", theme.shadow),
-		Utils.newGuess(MLENGTH, "", theme.shadow),
-		Utils.newGuess(MLENGTH, "", theme.shadow),
-		Utils.newGuess(MLENGTH, "", theme.shadow),
-		Utils.newGuess(MLENGTH, "", theme.shadow),
+		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
 	]);
 
 	const cell = React.useRef(0);
@@ -32,7 +31,7 @@ export default function Game() {
 		const cpGuess = [...guesses[row.current]];
 		cpGuess[cell.current++] = {
 			letter: key,
-			color: theme.accents.blue,
+			color: Theme.ACCENT_COLORS.BLUE,
 		};
 
 		const cpGuesses = [...guesses];
@@ -67,7 +66,7 @@ export default function Game() {
 
 	const clearHandler = () => {
 		const cpGuesses = [...guesses];
-		cpGuesses[row.current] = Utils.newGuess(MLENGTH, "", theme.shadow);
+		cpGuesses[row.current] = Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR);
 		setGuesses(cpGuesses);
 
 		cell.current = 0;
@@ -75,11 +74,11 @@ export default function Game() {
 
 	const resetHandler = () => {
 		setGuesses([
-			Utils.newGuess(MLENGTH, "", theme.shadow),
-			Utils.newGuess(MLENGTH, "", theme.shadow),
-			Utils.newGuess(MLENGTH, "", theme.shadow),
-			Utils.newGuess(MLENGTH, "", theme.shadow),
-			Utils.newGuess(MLENGTH, "", theme.shadow),
+			Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+			Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+			Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+			Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+			Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
 		]);
 
 		cell.current = 0;
@@ -104,11 +103,11 @@ export default function Game() {
 							<Status
 								state={gameState}
 								word={word}
-								textColor={theme.primary}
+								textColor={Theme.PRIMARY_COLOR}
 								shadowColors={{
-									red: theme.accents.red,
-									blue: theme.accents.blue,
-									green: theme.accents.green
+									red: Theme.ACCENT_COLORS.RED,
+									blue: Theme.ACCENT_COLORS.BLUE,
+									green: Theme.ACCENT_COLORS.GREEN
 								}}
 								resetHandler={resetHandler}
 							/> 
