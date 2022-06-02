@@ -1,6 +1,5 @@
 import styles from "./header.module.css"
 
-import React from "react"
 import Title from "./title"
 import Banner from "./banner"
 import * as Theme from "../theme"

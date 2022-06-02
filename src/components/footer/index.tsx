@@ -1,16 +1,19 @@
 import styles from "./footer.module.css"
 
-import React from "react"
 import Divider from "./divider"
-import { ThemeCtx } from "../theme"
+import * as Theme from "../theme"
 
 export default function Footer() {
-	const theme = React.useContext(ThemeCtx);
-
 	return (
 		<>
 			<footer>
-				<Divider stripeColors={[theme.accents.red, theme.accents.blue, theme.accents.green]} />
+				<Divider
+					stripeColors={[
+						Theme.ACCENT_COLORS.RED,
+						Theme.ACCENT_COLORS.BLUE,
+						Theme.ACCENT_COLORS.GREEN
+					]}
+				/>
 			</footer>
 		</>
 	)
