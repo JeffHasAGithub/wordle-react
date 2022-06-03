@@ -1,11 +1,11 @@
 import styles from "./game.module.css"
 import * as Utils from "./utils"
+import * as Theme from "../theme"
 
 import React from "react"
 import Board from "./board"
 import Keyboard from "./keyboard"
 import Status from "./status"
-import * as Theme from "../theme"
 
 const MATTEMPTS = 5;
 const MLENGTH = 5;
@@ -130,7 +130,6 @@ function useFetch(path: string): [string, () => void] {
 			.then(resp => resp.text())
 			.then(text=> {
 				const newWord = Utils.getRandWord(text.split("\n"));
-				console.log(newWord);
 				setData(newWord);
 			})
 			.catch(err => {

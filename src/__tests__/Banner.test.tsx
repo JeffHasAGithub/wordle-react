@@ -2,14 +2,14 @@ import { screen, render } from "@testing-library/react"
 import Banner from "../components/header/banner"
 
 import styles from "../components/header/banner/banner.module.css"
-import { themeColors } from "../components/theme"
+import * as Theme from "../components/theme"
 
 describe("Banner component", () => {
 	const props = {
 		stripeColors: [
-			themeColors.accents.red,
-			themeColors.accents.blue,
-			themeColors.accents.green,
+			Theme.ACCENT_COLORS.RED,
+			Theme.ACCENT_COLORS.BLUE,
+			Theme.ACCENT_COLORS.GREEN
 		]
 	}
 

@@ -1,18 +1,18 @@
 import { screen, render } from "@testing-library/react"
 import Title from "../components/header/title"
 
-import { themeColors } from "../components/theme"
+import * as Theme from "../components/theme"
 
 describe("Title component", () => {
 
 	const props = {
 		text: "Wordle",
-		textColor: themeColors.primary,
-		shadowColor: themeColors.shadow,
+		textColor: Theme.PRIMARY_COLOR,
+		shadowColor: Theme.SHADOW_COLOR,
 		accentColors: [
-			themeColors.accents.red,
-			themeColors.accents.blue,
-			themeColors.accents.green
+			Theme.ACCENT_COLORS.RED,
+			Theme.ACCENT_COLORS.BLUE,
+			Theme.ACCENT_COLORS.GREEN,
 		]
 	}
 

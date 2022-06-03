@@ -2,14 +2,14 @@ import { screen, render } from "@testing-library/react"
 import Divider from "../components/footer/divider"
 
 import styles from "../components/footer/divider/divider.module.css"
-import { themeColors } from "../components/theme"
+import * as Theme from "../components/theme"
 
 describe("Divider component", () => {
 	const props = {
 		stripeColors: [
-			themeColors.accents.red,
-			themeColors.accents.blue,
-			themeColors.accents.green
+			Theme.ACCENT_COLORS.RED,
+			Theme.ACCENT_COLORS.BLUE,
+			Theme.ACCENT_COLORS.GREEN,
 		]
 	}
 

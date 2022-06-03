@@ -52,17 +52,3 @@ describe("newGuess", () => {
 		});
 	});
 });
-
-describe("checkGuess", () => {
-});
-
-
-
-
-
-
-
-
-
-
-
