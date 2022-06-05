@@ -9,9 +9,9 @@ export default function Footer() {
 			<footer>
 				<Divider
 					stripeColors={[
-						Theme.ACCENT_COLORS.RED,
-						Theme.ACCENT_COLORS.BLUE,
-						Theme.ACCENT_COLORS.GREEN
+						"var(--accent-color-red)",
+						"var(--accent-color-blue)",
+						"var(--accent-color-green)"
 					]}
 				/>
 				<div className={styles.footer}>

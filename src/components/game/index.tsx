@@ -14,7 +14,7 @@ export default function Game() {
 	const [gameState, setGameState] = React.useState<Utils.GameState>(Utils.GameState.PLAYING);
 	const [word, getWord] = useFetch("words.txt");
 	const [guesses, setGuesses] = React.useState<Utils.Token[][]>([
-		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
+		Utils.newGuess(MLENGTH, "", "#A9A9A9"),
 		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
 		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),
 		Utils.newGuess(MLENGTH, "", Theme.SHADOW_COLOR),

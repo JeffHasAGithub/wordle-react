@@ -37,7 +37,12 @@ export default function Header({ text, textColor, shadowColor, accentColors }: P
 			<h1 className={styles.title}>
 			{
 				word.map((letter, i) => {
-					return <span key={i} className={styles.text} style={{color: `${textColor}`, textShadow: `5px 5px ${shadows[i]}`}}>{letter}</span>
+					return (
+						<span
+							key={i}
+							className={styles.text}
+							style={{color: `${textColor}`, textShadow: `5px 5px ${shadows[i]}`}}>{letter}</span>
+					);
 				})
 			}
 			</h1>

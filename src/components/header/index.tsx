@@ -10,18 +10,19 @@ export default function Header() {
 			<header>
 				<Title 
 					text="Wordle"
-					textColor={Theme.PRIMARY_COLOR}
-					shadowColor={Theme.SHADOW_COLOR}
+					textColor="var(--primary-color)"
+					shadowColor="var(--shadow-color)"
 					accentColors={[
-						Theme.ACCENT_COLORS.RED,
-						Theme.ACCENT_COLORS.BLUE,
-						Theme.ACCENT_COLORS.GREEN]}
+						"var(--accent-color-red)",
+						"var(--accent-color-blue)",
+						"var(--accent-color-green)"
+					]}
 				/>
 				<Banner
 					stripeColors={[
-						Theme.ACCENT_COLORS.RED,
-						Theme.ACCENT_COLORS.BLUE,
-						Theme.ACCENT_COLORS.GREEN,
+						"var(--accent-color-red)",
+						"var(--accent-color-blue)",
+						"var(--accent-color-green)"
 					]}
 				/>
 			</header>

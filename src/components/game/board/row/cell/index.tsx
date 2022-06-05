@@ -19,7 +19,7 @@ export default function Cell({ letter, color }: Utils.Token) {
 					? <>
 							<div
 								className={`${styles.cell}`}
-								style={{boxShadow: `0 6px 0 ${color}`}}
+								style={{boxShadow: `0 6px 0 ${color ? color : 'var(--shadow-color)'}`}}
 							>
 								{letter}
 							</div>
